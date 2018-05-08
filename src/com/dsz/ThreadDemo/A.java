@@ -1,4 +1,4 @@
-package com.dsz.ThreadDemo;
+package com.dsz.ThreadDemo;//synchronized锁定的是当前对象
 
 public class A {
     private int count = 10;
