@@ -1,4 +1,4 @@
-package com.dsz.ThreadDemo;
+package com.dsz.ThreadDemo;//synchronized关键字声明在方法上
 
 public class B {
     private int count = 10;

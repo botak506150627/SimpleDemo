@@ -1,4 +1,4 @@
-package com.dsz.ThreadDemo;
+package com.dsz.ThreadContainerDemo;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;

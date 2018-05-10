@@ -1,7 +1,6 @@
 package com.dsz.ThreadDemo;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLock1 {
     synchronized void m1(){
