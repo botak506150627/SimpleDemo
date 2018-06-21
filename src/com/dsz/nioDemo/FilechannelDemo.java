@@ -32,7 +32,7 @@ public class FilechannelDemo {
 		from.transferTo(0, from.size(),to);
 	}
 	public static void fileChannelWrite() throws IOException{
-		FileChannel to = new RandomAccessFile(new File("C:/Users/Administrator/Desktop/to.txt"),"rw").getChannel();
+		FileChannel to = new RandomAccessFile(new File("C:/Users/Administrator/Desktop/abc.txt"),"rw").getChannel();
 		String newData = "New String to write to file..." + System.currentTimeMillis();
 		ByteBuffer bbf = ByteBuffer.allocate(48);
 		bbf.put(newData.getBytes());
