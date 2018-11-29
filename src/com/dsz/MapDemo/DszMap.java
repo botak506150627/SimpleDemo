@@ -63,12 +63,32 @@ public class DszMap<K,V> extends AbstractMap implements Map,Cloneable{
             return oldvalue;
         }
     }
+    static final int tableSizeFor(int cap){
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAX_CAP) ? MAX_CAP : n + 1;
+    }
+    Node<K,V> [] table;
+    Set<Map.Entry<K,V>> entrySet;
+    int size;
+    int modCount;
+    int threshold;
+    final float loadFactor;
 
-    /**
-     *
-     * @param key
-     * @return
-     */
+    public DszMap(){
+        this.loadFactor = DE_LO_FA;
+    }
+    public DszMap(int initcap,float loadfactor){
+        if(initcap < 0) throw new IllegalArgumentException("非法初始化容量: " +initcap);
+        if(initcap > MAX_CAP) initcap = MAX_CAP;
+        if(loadfactor <= 0 ||Float.isNaN(loadfactor)) throw new IllegalArgumentException("负载因子无效"+loadfactor);
+        this.loadFactor = loadfactor;
+        this.threshold = tableSizeFor(initcap);
+    }
     static final int hash(Object key){
         int h;
         return key==null?0:(h = key.hashCode())^(h >>> 16);//高十六位和低十六位异或？？？
